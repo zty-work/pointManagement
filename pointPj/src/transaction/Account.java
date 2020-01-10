@@ -29,12 +29,20 @@ public class Account {
         return flows;
     }
 
-    public void addFlows(List<Flow> flows){
+    public void addFlows(List<Flow> flows) {
         this.flows.addAll(flows);
-        int totalBalance=this.balance;
-        for (int i = 0; i < flows.size(); i++) {
-            totalBalance += flows.get(i).amount;
+        int totalBalance = this.balance;
+        for (Flow flow : flows) {
+            totalBalance += flow.amount;
         }
         this.balance = totalBalance;
+    }
+
+    public String printFlows() {
+        String contents = "";
+        for (Flow flow : flows) {
+            contents += flow.description+"："+flow.amount+"分\n";
+        }
+        return contents;
     }
 }

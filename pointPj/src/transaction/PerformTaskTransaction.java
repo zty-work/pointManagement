@@ -15,7 +15,7 @@ public class PerformTaskTransaction extends Transaction {
     }
 
     @Override
-    void commit() {
+    public void commit() {
         int points = this.userTask.addUserTaskAction(new UserTaskAction(new Date(), UserTaskActionType.GOAL));
         this.flows=new ArrayList<>();
         this.flows.add(new Flow(points,"完成任务，领取积分"));

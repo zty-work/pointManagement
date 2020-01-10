@@ -5,7 +5,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import task.TaskPerformer;
-import transaction.Account;
 import transaction.ConsumerTransaction;
 import transaction.Flow;
 
