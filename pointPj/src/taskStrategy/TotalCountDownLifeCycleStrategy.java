@@ -2,12 +2,14 @@ package taskStrategy;
 
 public class TotalCountDownLifeCycleStrategy implements TaskCycleLifeStrategy {
 
-    int count;
+    private int count;
 
-    public TotalCountDownLifeCycleStrategy(int count){
+    public TotalCountDownLifeCycleStrategy(int count) {
+        this.count = count;
     }
 
     public boolean shouldFinish() {
+        count--;
         return count != 0;
     }
 

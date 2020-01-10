@@ -1,18 +1,11 @@
 package taskStrategy;
 
-import java.util.Calendar;
+import java.util.Date;
 
-public class DailyCountDownLifeCycleStrategy implements TaskCycleLifeStrategy {
+public class DailyCountDownLifeCycleStrategy extends FixDurationCountDownLifeCycleStrategy {
 
-    int count;
-    Calendar calendar;
-
-    public DailyCountDownLifeCycleStrategy(int count){
+    public DailyCountDownLifeCycleStrategy(int count, Date startTime) {
+        super(count, 86400, startTime);
     }
-
-    public boolean shouldFinish() {
-        return count != 0;
-    }
-
 
 }

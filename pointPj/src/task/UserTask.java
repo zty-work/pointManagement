@@ -1,6 +1,8 @@
 package task;
 
 
+import taskStrategy.FixDurationCountDownLifeCycleStrategy;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,14 +18,13 @@ public class UserTask {
     public UserTask(TaskDef taskDef, TaskPerformer taskPerformer) {
         this.taskDef = taskDef;
         this.taskPerformer = taskPerformer;
+        if (taskDef.taskCycleLifeStrategy instanceof FixDurationCountDownLifeCycleStrategy) {
+            TaskTimerManager.getInstance().addTask(this, (FixDurationCountDownLifeCycleStrategy) taskDef.taskCycleLifeStrategy);
+        }
     }
 
     public List<UserTaskAction> getUserTaskActions() {
         return userTaskActions;
-    }
-
-    public void setUserTaskActions(List<UserTaskAction> userTaskActions) {
-        this.userTaskActions = userTaskActions;
     }
 
     public int addUserTaskAction(UserTaskAction userTaskAction) {
@@ -51,4 +52,7 @@ public class UserTask {
         return taskPerformer;
     }
 
+    public void setStatus(UserTaskStatus status) {
+        this.status = status;
+    }
 }
