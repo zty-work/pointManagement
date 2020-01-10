@@ -80,7 +80,7 @@ public class Diff2Test1 {
         }
         //每10秒一次
         TaskDef newTaskDef5 = new TaskDef("测试(每十秒一次)", new FixPointStrategy(100),
-                new FixDurationCountDownLifeCycleStrategy(3, 10000, new Date()));
+                new FixDurationCountDownLifeCycleStrategy(1, 10000, new Date()));
         taskDefs.add(newTaskDef5);
         UserTask userTaskTenSecond = null;
         for (TaskPerformer taskPerformer : allUsers) {

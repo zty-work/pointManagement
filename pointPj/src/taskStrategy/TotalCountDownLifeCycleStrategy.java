@@ -10,7 +10,7 @@ public class TotalCountDownLifeCycleStrategy implements TaskCycleLifeStrategy {
 
     public boolean shouldFinish() {
         count--;
-        return count != 0;
+        return count <= 0;
     }
 
 }

@@ -17,7 +17,7 @@ public class FixDurationCountDownLifeCycleStrategy implements TaskCycleLifeStrat
 
     public boolean shouldFinish() {
         count--;
-        return count != 0;
+        return count <= 0;
     }
 
     public void refresh(){
