@@ -13,6 +13,9 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
+
+//测试用例：难度2，场景1
+//运营方发布不同类型的任务
 public class Diff2Test1 {
     //任务类型存储
     List<TaskDef> taskDefs = new ArrayList<>();
@@ -128,7 +131,11 @@ public class Diff2Test1 {
         assertEquals(userTaskInfinite.getStatus(), UserTaskStatus.Active);
         assertEquals(userTaskOneTime.getStatus(), UserTaskStatus.Finished);
         assertEquals(userTaskFix.getStatus(), UserTaskStatus.Finished);
-        assertEquals(userTaskDaily.getStatus(), UserTaskStatus.Finished);
+        if (new Date().getTime() > date.getTime() + 86400000) {
+            assertEquals(userTaskDaily.getStatus(), UserTaskStatus.Active);
+        }else {
+            assertEquals(userTaskDaily.getStatus(), UserTaskStatus.Finished);
+        }
         assertEquals(userTaskTenSecond.getStatus(), UserTaskStatus.Active);
 
 
