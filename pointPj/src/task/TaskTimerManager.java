@@ -10,7 +10,7 @@ import java.util.TimerTask;
 public class TaskTimerManager {
     private Map<UserTask, TimerTask> tasksToRefresh = new HashMap<>();
     private static TaskTimerManager instance;
-    Timer timer = new Timer();
+    private Timer timer = new Timer();
 
     private TaskTimerManager() {
     }
@@ -35,8 +35,8 @@ public class TaskTimerManager {
         tasksToRefresh.put(task, timerTask);
     }
 
-    public void deleteTask(UserTask task){
-
+    public void deleteTask(UserTask task) {
+        tasksToRefresh.get(task).cancel();
     }
 
 }
