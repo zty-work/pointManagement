@@ -35,5 +35,8 @@ public class TaskTimerManager {
         tasksToRefresh.put(task, timerTask);
     }
 
+    public void deleteTask(UserTask task){
+
+    }
 
 }

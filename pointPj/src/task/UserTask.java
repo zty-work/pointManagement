@@ -28,14 +28,13 @@ public class UserTask {
     }
 
     public int addUserTaskAction(UserTaskAction userTaskAction) {
-
         this.userTaskActions.add(userTaskAction);
         return performUserTaskAction(userTaskAction);
     }
 
     private int performUserTaskAction(UserTaskAction userTaskAction) {
-        if (userTaskAction.userTaskActionType == UserTaskActionType.COMPLETE) {
-            status = taskDef.taskCycleLifeStrategy.shouldFinish() ? Active : Finished;
+        if (userTaskAction.userTaskActionType == UserTaskActionType.GOAL) {
+            status = taskDef.taskCycleLifeStrategy.shouldFinish() ? Finished : Active;
         }
         return taskDef.taskPointStrategy.calculatePoint();
     }

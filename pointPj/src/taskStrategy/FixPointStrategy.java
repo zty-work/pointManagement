@@ -4,7 +4,7 @@ public class FixPointStrategy implements TaskPointStrategy {
 
     private int point;
 
-    FixPointStrategy(int point) {
+    public FixPointStrategy(int point) {
         this.point = point;
     }
 
