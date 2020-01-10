@@ -1,20 +1,36 @@
 package transaction;
 
 import task.TaskPerformer;
+import task.UserTask;
 import task.UserTaskAction;
+import task.UserTaskActionType;
 
-public class PerformTaskTransaction extends Transaction{
-    UserTaskAction userTaskAction;
+import java.util.Date;
+import java.util.List;
 
-    public void commit(TaskPerformer taskPerformer) {
+public class PerformTaskTransaction extends Transaction {
+    UserTask userTask;
 
+    public PerformTaskTransaction(UserTask userTask) {
+        this.userTask = userTask;
     }
 
-    public void setUserTaskAction(UserTaskAction userTaskAction) {
-        this.userTaskAction = userTaskAction;
+    public void setUserTask(UserTask userTask) {
+        this.userTask = userTask;
     }
 
-    public UserTaskAction getUserTaskAction() {
-        return userTaskAction;
+    public UserTask getUserTask() {
+        return userTask;
+    }
+
+    @Override
+    void commit() {
+        // if(this.userTask.TaskCycleLifeStrategy.shouldFinish()){
+        if(true){
+            this.userTask.addUserTaskAction(new UserTaskAction(new Date(), UserTaskActionType.COMPLETE));
+        }else{
+            this.userTask.addUserTaskAction(new UserTaskAction(new Date(), UserTaskActionType.NEXT));
+        }
+
     }
 }
