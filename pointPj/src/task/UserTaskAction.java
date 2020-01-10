@@ -12,4 +12,11 @@ public class UserTaskAction {
         this.userTaskActionType = userTaskActionType;
     }
 
+    public UserTaskActionType getUserTaskActionType() {
+        return userTaskActionType;
+    }
+
+    public Date getActionTime() {
+        return actionTime;
+    }
 }

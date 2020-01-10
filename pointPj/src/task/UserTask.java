@@ -33,7 +33,7 @@ public class UserTask {
     }
 
     private int performUserTaskAction(UserTaskAction userTaskAction) {
-        if (userTaskAction.userTaskActionType == UserTaskActionType.GOAL) {
+        if (userTaskAction.userTaskActionType == UserTaskActionType.COMPLETE) {
             status = taskDef.taskCycleLifeStrategy.shouldFinish() ? Finished : Active;
         }
         return taskDef.taskPointStrategy.calculatePoint();
