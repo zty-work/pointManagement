@@ -7,12 +7,16 @@ import org.junit.Test;
 import task.TaskDef;
 import task.TaskPerformer;
 import task.UserTask;
+import taskStrategy.FixPointStrategy;
+import taskStrategy.OneLifeCycleStrategy;
 import transaction.ConsumerTransaction;
 import transaction.Flow;
 import transaction.PerformTaskTransaction;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static org.junit.Assert.assertEquals;
 
 
 public class Diff1Test3 {
@@ -43,8 +47,9 @@ public class Diff1Test3 {
         exchangeFlows.add(new Flow(-700, "兑换可乐"));
         ConsumerTransaction consumerTransaction = new ConsumerTransaction(exchangeFlows, taskPerformer);
         consumerTransaction.commit();
-        //  PerformTaskTransaction performTaskTransaction=new PerformTaskTransaction(new UserTask(new TaskDef(),taskPerformer));
-        //  performTaskTransaction.commit();
+        PerformTaskTransaction performTaskTransaction=new PerformTaskTransaction(new UserTask(new TaskDef("新年限定",new FixPointStrategy(500),new OneLifeCycleStrategy()),taskPerformer));
+        performTaskTransaction.commit();
         System.out.println("积分流水：\n" + taskPerformer.getAccount().printFlows());
+        assertEquals(800,taskPerformer.getAccount().getBalance());
     }
 }
