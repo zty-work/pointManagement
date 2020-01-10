@@ -14,24 +14,13 @@ public class Account {
         }
         this.balance=totalBalance;
     }
-    public void setBalance(int balance) {
-        this.balance = balance;
-    }
 
     public int getBalance() {
         return balance;
     }
 
-    public List<Flow> getFlows() {
-        return flows;
-    }
 
-    public void setFlows(List<Flow> flows) {
-        this.flows = flows;
-    }
-
-    public List<Flow> addFlows(List<Flow> flows){
+    public void addFlows(List<Flow> flows){
         this.flows.addAll(flows);
-        return this.flows;
     }
 }

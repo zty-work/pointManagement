@@ -9,8 +9,9 @@ import java.util.List;
 public class ConsumerTransaction extends Transaction{
     List<Flow> flows=new ArrayList<>();
     TaskPerformer taskPerformer;
-    public ConsumerTransaction(List<Flow> flows){
+    public ConsumerTransaction(List<Flow> flows,TaskPerformer taskPerformer){
         this.flows=flows;
+        this.taskPerformer=taskPerformer;
     }
     @Override
     public void commit() {

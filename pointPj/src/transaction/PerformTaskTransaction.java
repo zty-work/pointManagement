@@ -1,12 +1,10 @@
 package transaction;
 
-import task.TaskPerformer;
 import task.UserTask;
 import task.UserTaskAction;
 import task.UserTaskActionType;
 
 import java.util.Date;
-import java.util.List;
 
 public class PerformTaskTransaction extends Transaction {
     UserTask userTask;
@@ -26,9 +24,9 @@ public class PerformTaskTransaction extends Transaction {
     @Override
     void commit() {
         // if(this.userTask.TaskCycleLifeStrategy.shouldFinish()){
-        if(true){
+        if (true) {
             this.userTask.addUserTaskAction(new UserTaskAction(new Date(), UserTaskActionType.COMPLETE));
-        }else{
+        } else {
             this.userTask.addUserTaskAction(new UserTaskAction(new Date(), UserTaskActionType.NEXT));
         }
 

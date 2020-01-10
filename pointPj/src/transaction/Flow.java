@@ -8,6 +8,11 @@ public class Flow {
         return amount;
     }
 
+    public Flow(int amount,String description){
+        this.amount=amount;
+        this.description=description;
+    }
+
     public void setAmount(int amount) {
         this.amount = amount;
     }
