@@ -4,6 +4,7 @@ import task.UserTask;
 import task.UserTaskAction;
 import task.UserTaskActionType;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class PerformTaskTransaction extends Transaction {
@@ -13,17 +14,11 @@ public class PerformTaskTransaction extends Transaction {
         this.userTask = userTask;
     }
 
-    public void setUserTask(UserTask userTask) {
-        this.userTask = userTask;
-    }
-
-    public UserTask getUserTask() {
-        return userTask;
-    }
-
     @Override
     void commit() {
-        int points = 0;
-        points = this.userTask.addUserTaskAction(new UserTaskAction(new Date(), UserTaskActionType.GOAL));
+        int points = this.userTask.addUserTaskAction(new UserTaskAction(new Date(), UserTaskActionType.GOAL));
+        this.flows=new ArrayList<>();
+        this.flows.add(new Flow(points,"完成任务，领取积分"));
+        this.userTask.getTaskPerformer().getAccount().addFlows(this.flows);
     }
 }

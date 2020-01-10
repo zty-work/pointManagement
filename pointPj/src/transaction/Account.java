@@ -20,24 +20,21 @@ public class Account {
         }
         this.balance = totalBalance;
     }
-<<<<<<< HEAD
-=======
-
-    public void setBalance(int balance) {
-        this.balance = balance;
-    }
->>>>>>> 4c28241c4ba44a388c336bbe400ce40b5287bae8
 
     public int getBalance() {
         return balance;
     }
 
+    public List<Flow> getFlows() {
+        return flows;
+    }
 
-<<<<<<< HEAD
     public void addFlows(List<Flow> flows){
-=======
-    public void addFlows(List<Flow> flows) {
->>>>>>> 4c28241c4ba44a388c336bbe400ce40b5287bae8
         this.flows.addAll(flows);
+        int totalBalance=this.balance;
+        for (int i = 0; i < flows.size(); i++) {
+            totalBalance += flows.get(i).amount;
+        }
+        this.balance = totalBalance;
     }
 }
