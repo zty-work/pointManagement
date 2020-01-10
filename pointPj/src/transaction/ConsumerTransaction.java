@@ -6,16 +6,17 @@ import task.UserTaskAction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ConsumerTransaction extends Transaction{
-    List<Flow> flows=new ArrayList<>();
+public class ConsumerTransaction extends Transaction {
+    List<Flow> flows = new ArrayList<>();
     TaskPerformer taskPerformer;
-    public ConsumerTransaction(List<Flow> flows,TaskPerformer taskPerformer){
-        this.flows=flows;
-        this.taskPerformer=taskPerformer;
+
+    public ConsumerTransaction(List<Flow> flows, TaskPerformer taskPerformer) {
+        this.flows = flows;
+        this.taskPerformer = taskPerformer;
     }
+
     @Override
     public void commit() {
-     // this.taskPerformer.account.addFlows(this.flows);
-        this.taskPerformer.setAccount(new Account(this.taskPerformer.getAccount().addFlows(this.flows)));
+        this.taskPerformer.getAccount().addFlows(this.flows);
     }
 }

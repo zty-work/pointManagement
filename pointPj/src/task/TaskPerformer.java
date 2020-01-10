@@ -1,15 +1,14 @@
 package task;
 
 import transaction.Account;
-import transaction.Flow;
-
-import java.util.List;
 
 public class TaskPerformer {
-    String name;
-    Account account;
-    public TaskPerformer(String name){
-        this.name=name;
+    private String name;
+    private Account account;
+
+    public TaskPerformer(String name) {
+        this.name = name;
+        this.account = new Account();
     }
 
     public Account getAccount() {
@@ -20,8 +19,5 @@ public class TaskPerformer {
         return name;
     }
 
-    public void setAccount(Account account) {
-        this.account = account;
-    }
 
 }

@@ -23,12 +23,7 @@ public class PerformTaskTransaction extends Transaction {
 
     @Override
     void commit() {
-        // if(this.userTask.TaskCycleLifeStrategy.shouldFinish()){
-        if (true) {
-            this.userTask.addUserTaskAction(new UserTaskAction(new Date(), UserTaskActionType.COMPLETE));
-        } else {
-            this.userTask.addUserTaskAction(new UserTaskAction(new Date(), UserTaskActionType.NEXT));
-        }
-
+        int points = 0;
+        points = this.userTask.addUserTaskAction(new UserTaskAction(new Date(), UserTaskActionType.GOAL));
     }
 }
