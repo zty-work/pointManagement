@@ -43,5 +43,6 @@ public class Diff2Test2 {
         consumerTransaction.commit();
         assertEquals(point - 700, taskPerformer.getAccount().getBalance());
         assertEquals("兑换可乐", taskPerformer.getAccount().getFlows().get(1).getDescription());
+        System.out.println("当前积分"+taskPerformer.getAccount().getBalance()+"分");
     }
 }
